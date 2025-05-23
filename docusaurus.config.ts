@@ -13,7 +13,7 @@ const config: Config = {
 	url: "https://your-docusaurus-site.example.com",
 	// Set the /<baseUrl>/ pathname under which your site is served
 	// For GitHub pages deployment, it is often '/<projectName>/'
-	baseUrl: "/",
+	baseUrl: "/blogs/",
 
 	// GitHub pages deployment config.
 	// If you aren't using GitHub pages, you don't need these.
@@ -36,7 +36,8 @@ const config: Config = {
 			"classic",
 			{
 				docs: {
-					routeBasePath: "/blogs",
+					path: "blogs",
+					routeBasePath: "/",
 					showLastUpdateTime: true,
 					sidebarPath: "./sidebars.ts",
 					breadcrumbs: false,
@@ -56,7 +57,6 @@ const config: Config = {
 				// https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#theme-options
 				hashed: true,
 				indexDocs: true,
-				indexBlog: true,
 				indexPages: true,
 				language: ["en", "zh"],
 			},

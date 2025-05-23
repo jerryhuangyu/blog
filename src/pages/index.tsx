@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Home() {
-	return <main />;
+	return <main>blog home</main>;
 }
