@@ -9,6 +9,8 @@ const config: Config = {
 	tagline: "Dinosaurs are cool",
 	favicon: "img/favicon.ico",
 
+	plugins: ["./src/plugins/tailwind-config.js"],
+
 	// Set the production url of your site here
 	url: "https://your-docusaurus-site.example.com",
 	// Set the /<baseUrl>/ pathname under which your site is served
@@ -62,6 +64,7 @@ const config: Config = {
 			},
 		],
 	],
+
 	themeConfig: {
 		// Replace with your project's social card
 		image: "img/docusaurus-social-card.jpg",

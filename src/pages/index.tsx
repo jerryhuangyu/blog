@@ -1,5 +1,10 @@
+import Layout from "@theme/Layout";
 import React from "react";
 
 export default function Home() {
-	return <main>blog home</main>;
+	return (
+		<Layout>
+			<main></main>
+		</Layout>
+	);
 }
