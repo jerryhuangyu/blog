@@ -8,7 +8,7 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Default Infima variables here. */
 :root {
   --ifm-color-primary: #d0a225;
   --ifm-color-primary-dark: #bb9221;
@@ -18,8 +18,6 @@
   --ifm-color-primary-lighter: #ddb23d;
   --ifm-color-primary-lightest: #e2be5c;
 }
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #ffbb00;
   --ifm-color-primary-dark: #e6a800;

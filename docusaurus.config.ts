@@ -9,7 +9,7 @@ const config: Config = {
 	tagline: "Dinosaurs are cool",
 	favicon: "img/favicon.ico",
 
-	plugins: ["./src/plugins/tailwind-config.js"],
+	plugins: ["./src/plugins/tailwind-config.js", "./src/plugins/path-alias.js"],
 
 	// Set the production url of your site here
 	url: "https://your-docusaurus-site.example.com",
