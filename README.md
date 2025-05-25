@@ -1,41 +1,75 @@
-# Website
+# Huang-Yu Blog
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+A modern, personal technical blog built with [Docusaurus 3](https://docusaurus.io/) and TypeScript, featuring a beautiful UI, fast search, and a focus on developer experience.
 
-### Installation
+## Features
 
-```
-$ yarn
-```
+- **Docusaurus 3**: Static site generator for documentation and blogs
+- **TypeScript & React 19**: Modern, type-safe, and component-driven
+- **Tailwind CSS**: Utility-first styling for rapid UI development
+- **Local Search**: Fast, privacy-friendly search powered by `@easyops-cn/docusaurus-search-local`
+- **MDX Support**: Write posts in Markdown or MDX, with React components
+- **Custom Components**: Includes custom hero and blog marquee components
+- **Multi-language Ready**: i18n support (default: English)
+- **SEO & Social**: Social card, tags, and sitemap
+- **Beautiful, Responsive UI**: Modern design with dark mode
 
-### Local Development
+## Getting Started
 
-```
-$ yarn start
-```
+### 1. Install dependencies
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+pnpm install
 ```
 
-Not using SSH:
+### 2. Start the development server
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+```bash
+pnpm start
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Visit [http://localhost:3000/blogs/](http://localhost:3000/blogs/) to view the site.
+
+### 3. Build for production
+
+```bash
+pnpm build
+```
+
+### 4. Serve the production build locally
+
+```bash
+pnpm serve
+```
+
+## Writing Posts
+
+- Add Markdown (`.md`/`.mdx`) files to `blogs/` (see `_tutorial-basics/` for examples)
+- Use [Front Matter](https://docusaurus.io/docs/markdown-features#front-matter) for metadata (title, date, tags, etc.)
+- MDX files can include React components
+
+## Deployment
+
+- Build static files: `pnpm build`
+- Deploy the `build/` folder to any static hosting (Vercel, Netlify, GitHub Pages, etc.)
+- See [Docusaurus Deployment Guide](https://docusaurus.io/docs/deployment)
+
+## Scripts
+
+- `pnpm start` – Start dev server
+- `pnpm build` – Build static site
+- `pnpm serve` – Serve production build locally
+- `pnpm deploy` – Deploy (customize as needed)
+- `pnpm format` – Format code with Biome
+
+## Tech Stack
+
+- [Docusaurus 3](https://docusaurus.io/)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [MDX](https://mdxjs.com/)
+
+## License
+
+This project is for personal use.
