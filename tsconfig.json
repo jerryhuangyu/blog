@@ -5,13 +5,8 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "exclude": [
-    ".docusaurus",
-    "build"
-  ]
+  "exclude": [".docusaurus", "build"]
 }

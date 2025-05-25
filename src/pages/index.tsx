@@ -4,10 +4,10 @@ import Layout from "@theme/Layout";
 import React from "react";
 
 export default function Home() {
-	return (
-		<Layout>
-			<Hero />
-			<MarqueeBlogs />
-		</Layout>
-	);
+  return (
+    <Layout>
+      <Hero />
+      <MarqueeBlogs />
+    </Layout>
+  );
 }
