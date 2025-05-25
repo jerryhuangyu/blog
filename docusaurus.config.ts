@@ -38,7 +38,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          path: "blog",
+          path: "articles",
           routeBasePath: "/",
           showLastUpdateTime: true,
           sidebarPath: "./sidebars.ts",
