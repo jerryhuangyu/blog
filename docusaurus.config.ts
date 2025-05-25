@@ -87,6 +87,11 @@ const config: Config = {
           label: "Blog",
         },
         {
+          href: "/blogs/tags",
+          position: "left",
+          label: "Tags",
+        },
+        {
           href: "https://github.com/facebook/docusaurus",
           className: "header--github-link",
           "aria-label": "GitHub repository",
