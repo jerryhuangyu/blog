@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import MarqueeBlogs from "@/components/MarqueeBlogs";
+import MarqueeArticles from "@/components/MarqueeArticles";
 import Layout from "@theme/Layout";
 import React from "react";
 
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <Hero />
-      <MarqueeBlogs />
+      <MarqueeArticles />
     </Layout>
   );
 }

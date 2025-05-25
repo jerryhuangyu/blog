@@ -4,7 +4,7 @@ A modern, personal technical blog built with [Docusaurus 3](https://docusaurus.i
 
 ## Features
 
-- **Docusaurus 3**: Static site generator for documentation and blogs
+- **Docusaurus 3**: Static site generator for documentation and blog
 - **TypeScript & React 19**: Modern, type-safe, and component-driven
 - **Tailwind CSS**: Utility-first styling for rapid UI development
 - **Local Search**: Fast, privacy-friendly search powered by `@easyops-cn/docusaurus-search-local`
@@ -28,7 +28,7 @@ pnpm install
 pnpm start
 ```
 
-Visit [http://localhost:3000/blogs/](http://localhost:3000/blogs/) to view the site.
+Visit [http://localhost:3000/blog/](http://localhost:3000/blog/) to view the site.
 
 ### 3. Build for production
 
@@ -44,7 +44,7 @@ pnpm serve
 
 ## Writing Posts
 
-- Add Markdown (`.md`/`.mdx`) files to `blogs/` (see `_tutorial-basics/` for examples)
+- Add Markdown (`.md`/`.mdx`) files to `blog/` (see `_tutorial-basics/` for examples)
 - Use [Front Matter](https://docusaurus.io/docs/markdown-features#front-matter) for metadata (title, date, tags, etc.)
 - MDX files can include React components
 
