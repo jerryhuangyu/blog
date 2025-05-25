@@ -99,14 +99,14 @@ const config: Config = {
         },
       ],
     },
-    announcementBar: {
-      id: "support_us", // Any unique ID
-      content:
-        '⭐️ If you like this project, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/docusaurus">GitHub</a>! ⭐️',
-      backgroundColor: "#fafbfc",
-      textColor: "#091E42",
-      isCloseable: true,
-    },
+    // announcementBar: {
+    //   id: "support_us", // Any unique ID
+    //   content:
+    //     '⭐️ If you like this project, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/docusaurus">GitHub</a>! ⭐️',
+    //   backgroundColor: "#fafbfc",
+    //   textColor: "#091E42",
+    //   isCloseable: true,
+    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
