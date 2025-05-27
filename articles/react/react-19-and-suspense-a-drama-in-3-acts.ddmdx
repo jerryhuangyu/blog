@@ -212,3 +212,7 @@ React 團隊在此階段接受反饋並做出回應，推遲已經宣布並在�
 顯而易見但值得一提的是：在 Twitter 上互相喊話並無助益。我對於自己參與的任何不冷靜、不客觀的溝通感到後悔，我非常感謝 Sophie 處理事情的溝通方式和處理方法。🙏
 
 像那些走在前面的人一樣，我也發現：面對面的互動總是更好，期待在未來的大會上有更多精彩的對話。🎉
+
+import GiscusComment from "@/components/GiscusComment";
+
+<GiscusComment />
