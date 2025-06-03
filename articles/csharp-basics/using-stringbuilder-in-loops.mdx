@@ -1,0 +1,80 @@
+---
+title: Using StringBuilder in Loops
+date: "2025-06-04"
+tags: ["csharp", "performance", "StringBuilder"]
+sidebar_position: 2
+---
+
+> “Every decent programmer knows that string concatenation, while fine in small doses, is deadly poison in loops."
+> — [Jeff Atwood](https://blog.codinghorror.com/the-sad-tragedy-of-micro-optimization-theater/#:~:text=Every%C2%A0decent%20programmer%20knows%20that%20string%20concatenation%2C%20while%20fine%20in%20small%20doses%2C%20is%20deadly%20poison%20in%20loops.)
+
+As a seasoned C# developer, you’ve likely encountered scenarios where string manipulation inside loops becomes a bottleneck. Although concatenating strings with the `+` operator or `string.Concat` may feel intuitive and convenient, doing so repeatedly in a loop can cause severe performance degradation. This article dives deep into why naive string concatenation in loops is inefficient, how the `StringBuilder` class solves this problem, and when to choose each approach.
+
+## Why is String Concatenation in Loops So Bad?
+
+In .NET (and most garbage collected languages), **strings are immutable**. This means that once a string instance is created, it cannot be changed. So when you concatenate two strings:
+
+```csharp
+string result = "Hello, " + "World!";
+```
+
+a **new** string instance is created behind the scenes, combining the two.
+
+Now imagine this inside a loop:
+
+```csharp
+string result = "";
+for (int i = 0; i < 1000; i++)
+{
+    result += i.ToString();
+}
+```
+
+Each iteration creates a new string by copying the entire old content plus the new addition — leading to a **quadratic time complexity (O(n²))** because the string grows and each concatenation requires copying all characters again.
+
+This issue is famously known as the *[Shlemiel the painter’s algorithm](https://www.joelonsoftware.com/2001/12/11/back-to-basics/#:~:text=code%20uses%20the-,Shlemiel%20the%C2%A0painter%E2%80%99s%20algorithm,-.%20Who%20is)* performance problem, as described by Joel Spolsky. Just like Shlemiel keeps walking farther from the paint can, **a naive string concatenation approach keeps doing more and more redundant work with each iteration**, rather than optimizing for reuse or locality.
+
+> **Note:** The quadratic behavior arises because strings are immutable, and each concatenation results in a new allocation and full copy of the accumulated content. This can be easily confirmed by profiling memory allocations and execution time.
+
+## How `StringBuilder` Fixes the Problem
+
+`StringBuilder` is a specialized class designed to build strings efficiently by maintaining a **mutable buffer** internally, minimizing allocations and copying.
+
+Example rewrite of the previous code:
+
+```csharp
+var builder = new System.Text.StringBuilder();
+for (int i = 0; i < 1000; i++)
+{
+    builder.Append(i.ToString());
+}
+string result = builder.ToString();
+```
+
+Here, `Append` writes directly into the internal buffer, resizing it only occasionally (usually doubling the capacity), leading to **amortized linear time complexity (O(n))**.
+
+## When to Use String Concatenation vs. StringBuilder
+
+| Scenario                                     | Recommendation                             |
+| -------------------------------------------- | ------------------------------------------ |
+| Concatenating a few strings (`<=10`)          | Use `+` or string interpolation (`$"..."`) |
+| Concatenating strings in loops or large data | Use `StringBuilder`                        |
+| Concatenating known fixed strings            | Use `string.Concat` or string literals     |
+
+> **Tip:** For very small concatenations or outside loops, modern C# compilers optimize string concatenations efficiently, so `+` and interpolations are fine and more readable.
+
+## Summary
+
+- Strings are immutable in .NET, so concatenation inside loops causes repeated memory allocation and copying.
+- This leads to quadratic time complexity and poor performance — the “deadly poison” Jeff Atwood warns about.
+- `StringBuilder` maintains a mutable buffer, making string construction efficient with amortized linear time complexity.
+- Always choose `StringBuilder` when concatenating strings inside loops or handling large string data.
+
+## References
+
+* [The Sad Tragedy of Micro-Optimization Theater](https://blog.codinghorror.com/the-sad-tragedy-of-micro-optimization-theater/)
+* [Back to Basics - Joel Spolsky](https://www.joelonsoftware.com/2001/12/11/back-to-basics/)
+
+import GiscusComment from "@/components/GiscusComment";
+
+<GiscusComment />
