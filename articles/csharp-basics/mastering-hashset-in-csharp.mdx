@@ -7,8 +7,6 @@ sidebar_position: 0
 
 As a C# developer, understanding the right data structures for your task can greatly improve performance and code readability. One of the most powerful yet underused structures is `HashSet<T>`. In this article, we’ll break down everything you should know about `HashSet<T>`—what it is, how it works, when to use it, and how it compares to other collections like `List<T>` and `Dictionary<TKey, TValue>`.
 
----
-
 ## What is `HashSet<T>`?
 
 `HashSet<T>` is a **collection of unique elements**. Unlike lists, it **does not allow duplicates** and does **not guarantee any order** of elements. It is built for **high-performance membership checks**, making it ideal for scenarios where you often ask, “Is this item already in the collection?”
@@ -75,8 +73,6 @@ set.Contains("hello"); // true
 | `Count`                     | Number of elements in the set                |
 | `SetEquals(IEnumerable<T>)` | Checks if two sets contain the same elements |
 
----
-
 ## When to Use `HashSet<T>`
 
 ### Use when
@@ -90,8 +86,6 @@ set.Contains("hello"); // true
 * You need to maintain **insertion order** → Use `List<T>`
 * You need **sorted elements** → Use `SortedSet<T>`
 
----
-
 ## Comparing `HashSet<T>`, `List<T>`, and `Dictionary<TKey, TValue>`
 
 | Feature            | `HashSet<T>`                           | `List<T>`                      | `Dictionary<TKey, TValue>`                |
@@ -101,8 +95,6 @@ set.Contains("hello"); // true
 | Lookup performance | ✅ Fast (O(1))                          | ❌ Slow (O(n))                  | ✅ Fast (O(1) by key)                      |
 | Use case           | Unique items, fast membership checks   | Ordered items, duplicates okay | Key-value mapping                         |
 | Custom equality    | ✅ Supported via `IEqualityComparer<T>` | ❌ Not supported                | ✅ Supported via `IEqualityComparer<TKey>` |
-
----
 
 ## Final Thoughts
 
