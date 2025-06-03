@@ -1,0 +1,119 @@
+---
+title: Mastering HashSet in C#
+date: "2025-02-05"
+tags: ["csharp", "HashSet"]
+sidebar_position: 0
+---
+
+As a C# developer, understanding the right data structures for your task can greatly improve performance and code readability. One of the most powerful yet underused structures is `HashSet<T>`. In this article, we’ll break down everything you should know about `HashSet<T>`—what it is, how it works, when to use it, and how it compares to other collections like `List<T>` and `Dictionary<TKey, TValue>`.
+
+---
+
+## What is `HashSet<T>`?
+
+`HashSet<T>` is a **collection of unique elements**. Unlike lists, it **does not allow duplicates** and does **not guarantee any order** of elements. It is built for **high-performance membership checks**, making it ideal for scenarios where you often ask, “Is this item already in the collection?”
+
+### Namespace
+
+To use it, just import:
+
+```csharp
+using System.Collections.Generic;
+```
+
+### Basic Usage
+
+Here’s a simple example to get you started:
+
+```csharp
+var set = new HashSet<int>();
+
+set.Add(1);            // returns true
+set.Add(1);            // returns false — already exists
+set.Contains(1);       // true
+set.Remove(1);         // true
+```
+
+### Performance Benefits
+
+One of the biggest strengths of `HashSet<T>` is performance. It’s backed by a **hash table**, meaning operations like `Add`, `Remove`, and `Contains` are typically **O(1)**—much faster than searching through a list (`O(n)`).
+
+### Set Operations
+
+`HashSet<T>` shines in performing mathematical set operations:
+
+```csharp
+var a = new HashSet<int> { 1, 2, 3 };
+var b = new HashSet<int> { 3, 4, 5 };
+
+a.UnionWith(b);              // a becomes {1, 2, 3, 4, 5}
+a.IntersectWith(b);          // a becomes {3}
+a.ExceptWith(b);             // removes all b's elements from a
+a.SymmetricExceptWith(b);    // keeps elements only in one set
+```
+
+These methods make `HashSet<T>` perfect for problems involving comparisons between two datasets.
+
+### Custom Equality
+
+Need case-insensitive string comparisons? No problem. Just pass an `IEqualityComparer<T>`:
+
+```csharp
+var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+set.Add("Hello");
+set.Contains("hello"); // true
+```
+
+### Key Members Overview
+
+| Member                      | Description                                  |
+| --------------------------- | -------------------------------------------- |
+| `Add(T item)`               | Adds item if not already present             |
+| `Remove(T item)`            | Removes item if it exists                    |
+| `Contains(T item)`          | Checks if item exists in the set             |
+| `Clear()`                   | Removes all items                            |
+| `Count`                     | Number of elements in the set                |
+| `SetEquals(IEnumerable<T>)` | Checks if two sets contain the same elements |
+
+---
+
+## When to Use `HashSet<T>`
+
+### Use when
+
+* You want to ensure uniqueness
+* You need **fast lookups**
+* You're performing **set-like operations** (union, intersection, etc.)
+
+### Avoid when
+
+* You need to maintain **insertion order** → Use `List<T>`
+* You need **sorted elements** → Use `SortedSet<T>`
+
+---
+
+## Comparing `HashSet<T>`, `List<T>`, and `Dictionary<TKey, TValue>`
+
+| Feature            | `HashSet<T>`                           | `List<T>`                      | `Dictionary<TKey, TValue>`                |
+| ------------------ | -------------------------------------- | ------------------------------ | ----------------------------------------- |
+| Duplicates         | ❌ Not allowed                          | ✅ Allowed                      | ❌ Keys must be unique                     |
+| Order              | ❌ Not preserved                        | ✅ Preserved                    | ❌ Not guaranteed                          |
+| Lookup performance | ✅ Fast (O(1))                          | ❌ Slow (O(n))                  | ✅ Fast (O(1) by key)                      |
+| Use case           | Unique items, fast membership checks   | Ordered items, duplicates okay | Key-value mapping                         |
+| Custom equality    | ✅ Supported via `IEqualityComparer<T>` | ❌ Not supported                | ✅ Supported via `IEqualityComparer<TKey>` |
+
+---
+
+## Final Thoughts
+
+`HashSet<T>` is a simple yet powerful tool in your C# toolbox. It gives you speed, clarity, and built-in support for set operations—all with minimal setup. If you frequently check for duplicates or perform comparisons between collections, it’s likely the right choice.
+
+Make sure you:
+
+* Use the right equality logic (`IEqualityComparer<T>`) if needed
+* Understand the performance implications
+* Choose the right structure for your use case
+
+import GiscusComment from "@/components/GiscusComment";
+
+<GiscusComment />
