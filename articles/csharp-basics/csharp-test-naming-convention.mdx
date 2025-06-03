@@ -1,0 +1,150 @@
+---
+title: "C# Test Naming Convention"
+description: "Learn the .NET-recommended unit test naming convention that enhances readability, maintainability, and clarity in your test suite."
+date: "2025-06-03"
+tags: ["csharp", "testing"]
+sidebar_position: 0
+---
+
+# C# Test Naming Convention
+
+When writing unit tests in C#, a clear and consistent naming strategy plays a vital role in improving the **readability**, **maintainability**, and **understandability** of your codebase. One of the most effective and widely adopted conventions, **recommended by .NET documentation and community standards**, is the following format:
+
+> `MethodName_StateUnderTest_ExpectedBehavior`
+
+This article dives into what this naming convention is, why it matters, and how to apply it in real-world scenarios.
+
+---
+
+## Why Test Naming Matters
+
+Test names serve as **living documentation**. A good test name tells you:
+
+- What method is being tested
+- Under what conditions
+- What the expected outcome is
+
+This removes the need to dive into the test body to understand its purpose and ensures that failing tests communicate issues clearly and concisely.
+
+---
+
+## Naming Pattern Breakdown
+
+### Format
+
+```csharp
+MethodName_StateUnderTest_ExpectedBehavior
+```
+
+| Segment            | Description                                                   |
+|--------------------|---------------------------------------------------------------|
+| `MethodName`        | The method under test                                         |
+| `StateUnderTest`    | The specific context or input being tested                    |
+| `ExpectedBehavior`  | The result or behavior expected from the method               |
+
+### Real-World Examples
+
+Consider a simple `Calculator` class:
+
+```csharp
+public class Calculator
+{
+    public int Add(string numbers)
+    {
+        if (string.IsNullOrEmpty(numbers))
+            return 0;
+
+        return numbers.Split(',').Select(int.Parse).Sum();
+    }
+}
+```
+
+Now let’s write tests using the naming convention:
+
+```csharp
+[TestMethod]
+public void Add_EmptyString_ReturnsZero()
+{
+    var calculator = new Calculator();
+
+    var result = calculator.Add("");
+
+    Assert.AreEqual(0, result);
+}
+```
+
+```csharp
+[TestMethod]
+public void Add_SingleNumber_ReturnsThatNumber()
+{
+    var calculator = new Calculator();
+
+    var result = calculator.Add("5");
+
+    Assert.AreEqual(5, result);
+}
+```
+
+```csharp
+[TestMethod]
+public void Add_MultipleCommaSeparatedNumbers_ReturnsSum()
+{
+    var calculator = new Calculator();
+
+    var result = calculator.Add("1,2,3");
+
+    Assert.AreEqual(6, result);
+}
+```
+
+Each test method clearly communicates its purpose without needing to read the body.
+
+---
+
+## Advantages of This Convention
+
+* **Readable**: Test names become self-explanatory.
+* **Maintainable**: Helps spot outdated, redundant, or overlapping tests quickly.
+* **Debuggable**: The method name tells you exactly what went wrong and under what condition.
+* **Scalable**: Works well in projects with hundreds or thousands of tests.
+
+---
+
+## Comparing Naming Styles
+
+| Naming Style                  | Example                                          | Issue                        |
+| ----------------------------- | ------------------------------------------------ | ---------------------------- |
+| Vague                         | `Test1`                                          | Not descriptive              |
+| Contextless                   | `Add_ReturnsCorrectValue`                        | Lacks input context          |
+| BDD-style (`Given_When_Then`) | `GivenEmptyString_WhenAddCalled_ThenReturnsZero` | Verbose and less aligned     |
+
+While BDD-style naming can work well, but `MethodName_StateUnderTest_ExpectedBehavior` hits the sweet spot for clarity and conciseness in the .NET ecosystem.
+
+---
+
+## Best Practices
+
+* ✅ Stick to the pattern throughout your codebase for consistency.
+* ✅ Use underscores to separate sections of the name.
+* ✅ Focus on **behavior**, not implementation details.
+* ✅ Keep names short but descriptive—avoid unnecessary verbosity.
+
+---
+
+## Conclusion
+
+Following the `MethodName_StateUnderTest_ExpectedBehavior` convention brings clarity and purpose to your test suite. Whether you're writing tests solo or in a large team, adopting this convention makes your tests easier to read, easier to maintain, and easier to trust.
+
+By turning your tests into well-named specifications, you make your codebase self-explanatory—and that's a huge win for quality and collaboration.
+
+---
+
+## References
+
+* [Unit testing best practices for .NET (Follow test naming standards)](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#follow-test-naming-standards)
+* [Walkthrough: Create and run unit tests for managed code (Create the first test method)](https://learn.microsoft.com/en-us/visualstudio/test/walkthrough-creating-and-running-unit-tests-for-managed-code?view=vs-2022#create-the-first-test-method)
+* [Mastering Unit Tests in .NET: Best Practices and Naming Conventions](https://ardalis.com/mastering-unit-tests-dotnet-best-practices-naming-conventions/)
+
+import GiscusComment from "@/components/GiscusComment";
+
+<GiscusComment />
