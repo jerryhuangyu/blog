@@ -3,6 +3,22 @@ import { Marquee } from "./magicui/marquee";
 
 const blog = [
   {
+    title: "MSTest, NUnit, or xUnit?",
+    tags: "csharp, testing",
+    description:
+      "深入比較 .NET 三大主流測試框架：MSTest、NUnit 與 xUnit。透過功能對比、程式碼範例與測試隔離解說，協助開發者選擇最適合的單元測試工具。",
+    img: "/blog/techstack/csharp.svg",
+    href: "/blog/csharp-basics/mstest-nunit-or-xunit",
+  },
+  {
+    title: "StringBuilder in Loops",
+    tags: "csharp, performance",
+    description:
+      "了解為何在 C# 迴圈中使用字串串接會嚴重影響效能，以及如何透過 StringBuilder 減少記憶體配置與提升執行效率。",
+    img: "/blog/techstack/csharp.svg",
+    href: "/blog/csharp-basics/using-stringbuilder-in-loops",
+  },
+  {
     title: "Over-generalization",
     tags: "react, typescript",
     description:
