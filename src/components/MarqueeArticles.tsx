@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marquee";
 
-const blog = [
+export const blog = [
   {
     title: "MSTest, NUnit, or xUnit?",
     tags: "csharp, testing",
@@ -16,7 +16,7 @@ const blog = [
     description:
       "了解為何在 C# 迴圈中使用字串串接會嚴重影響效能，以及如何透過 StringBuilder 減少記憶體配置與提升執行效率。",
     img: "/blog/techstack/csharp.svg",
-    href: "/blog/csharp-basics/using-stringbuilder-in-loops",
+    href: "/blog/csharp-basics/stringbuilder-in-loops",
   },
   {
     title: "Over-generalization",
